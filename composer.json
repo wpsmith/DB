@@ -1,0 +1,68 @@
+{
+  "name": "wpsmith/db",
+  "description": "Interacting with a custom DB Table.",
+  "keywords": [
+    "wordpress",
+    "wpdb",
+    "db",
+    "custom-tables"
+  ],
+  "homepage": "https://github.com/wpsmith/DB",
+  "type": "library",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Travis Smith",
+      "email": "t@wpsmith.net",
+      "homepage": "https://wpsmith.net/",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/wpsmith/DB/issues"
+  },
+  "require": {
+    "php": ">=7.2.0",
+    "wpsmith/singleton": "*"
+  },
+  "require-dev": {
+    "10up/wp_mock": "0.4.2",
+    "phpunit/phpunit": "5.*|6.*|7.*",
+    "brain/monkey": "^2.2",
+    "spatie/phpunit-snapshot-assertions": "^2",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
+    "squizlabs/php_codesniffer": "^3.3",
+    "phan/phan": "*",
+    "phpcompatibility/phpcompatibility-wp": "^2.0",
+    "phpcompatibility/php-compatibility": "*",
+    "wp-coding-standards/wpcs": "^2",
+    "automattic/vipwpcs": "*",
+    "mikey179/vfsstream": "~1",
+    "mockery/mockery": "*"
+  },
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "WPS\\WP\\DB\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "WPS\\WP\\DB\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": [
+      "vendor/bin/phpunit --verbose --testsuite wps-datastore"
+    ],
+    "test-debug": [
+      "vendor/bin/phpunit --verbose --testsuite wps-datastore --testdox --debug"
+    ],
+    "coverage": [
+      "@test -- --coverage-html tests/coverage"
+    ],
+    "phpcs": [
+      "vendor/bin/phpcs -ps src/ tests/ --extensions=php"
+    ]
+  }
+}
